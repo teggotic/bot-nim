@@ -31,7 +31,7 @@ proc finish*(bot: TwitchBot) =
   bot.chanFromWS[].close()
 
 proc startProcessing(bot: TwitchBot) =
-  proc processAction() =
+  proc processAction(originalData: string, g) =
     let 
       action = groups["action"]? || "PING"
       data = groups["data"]?
